@@ -1,0 +1,9 @@
+<%= form_for(@post, method: :put) do |f| %>
+    <%= f.select :user_id, options_for_select([[current_user.username, current_user.id]]) %><br><br>
+    <%= f.label :title %>
+    <%= f.text_field:title %><br/><br/>
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %><br/><br/>
+    <%= f.file_field :picture %><br><br>
+    <%= f.submit 'Update Post' %>
+<% end %>

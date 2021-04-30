@@ -1,12 +1,16 @@
 <h1>Welcome</h1>
 
 <% if logged_in?%>
-    <h1>You are Logged In, <%= current_user.username %>
+    <h3>You are Logged In, <%= current_user.username %>
     <%= link_to 'LogOut',session_path("a"),method: :delete%>
-    </h1>
+    </h3>
+    <%= link_to "Users page", user_path(current_user) %><br>
 <% else %>
 <%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", new_user_path, method: :get%>
+<%= button_to "Sign Up", new_user_path, method: :get%><br><br>
+
 <% end %>
+<span><%= link_to 'See Posts', posts_path %></span><br/><br/>
+
 
 

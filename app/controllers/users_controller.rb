@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     redirect_to '/welcome'
   end
 
+  def show
+    debugger
+    @user = User.find()
+  end
+
+
   private
 
   def user_param

@@ -1,0 +1,12 @@
+<div>
+<span><%= link_to 'Add new post', new_post_path %></span><br/><br/>
+<% @posts.each do |post| %>
+    <div><%= post.user.username %></div><br><br>
+    <div><%= post.title %></div><br><br>
+    <div><%= post.description%></div><br><br>
+    <div ><%= image_tag post.picture %></div>
+    <span><%= link_to 'Show', post_path(post) %></span>
+    <span><%= link_to 'Delete', post_path(post), method: :delete %></span>
+
+<% end%>
+</div>
