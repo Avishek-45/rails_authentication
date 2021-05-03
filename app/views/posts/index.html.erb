@@ -1,12 +1,19 @@
-<div>
+<div class="text-center">
 <span><%= link_to 'Add new post', new_post_path %></span><br/><br/>
-<% @posts.each do |post| %>
-    <div><%= post.user.username %></div><br><br>
-    <div><%= post.title %></div><br><br>
-    <div><%= post.description%></div><br><br>
-    <div ><%= image_tag post.picture %></div>
-    <span><%= link_to 'Show', post_path(post) %></span>
-    <span><%= link_to 'Delete', post_path(post), method: :delete %></span>
-
-<% end%>
+</div>
+<div class="d-flex justify-content-around">
+    <% @posts.each do |post| %>
+        <div class="card" style="width: 18rem; ">
+                <%= image_tag post.picture,class:"card-img-top" %>
+            <div class="card-body">
+                <h5 class="card-title"><b><%= post.user.username %></b></</h5>
+                <h5 class="card-title"><%= post.title %></</h5>
+                <p class="card-text"><%= post.description%></p>
+                <% if logged_in? %>
+                    <span><%= link_to 'Show', post_path(post) %></span>
+                    <span><%= link_to 'Delete', post_path(post), method: :delete %></span>
+                <% end %>
+            </div>
+        </div>
+    <% end%>
 </div>

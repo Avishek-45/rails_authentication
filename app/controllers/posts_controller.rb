@@ -37,11 +37,7 @@ class PostsController < ApplicationController
         redirect_to posts_path
     end
 
-    private
-
-    def post_params
-        params.require(:post).permit(:user_id,:title, :description,:picture)
-    end
+    
 
 
 

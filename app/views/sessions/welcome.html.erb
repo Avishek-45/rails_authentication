@@ -1,16 +1,16 @@
-<h1>Welcome</h1>
-
-<% if logged_in?%>
-    <h3>You are Logged In, <%= current_user.username %>
-    <%= link_to 'LogOut',session_path("a"),method: :delete%>
-    </h3>
-    <%= link_to "Users page", user_path(current_user) %><br>
-<% else %>
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", new_user_path, method: :get%><br><br>
-
-<% end %>
-<span><%= link_to 'See Posts', posts_path %></span><br/><br/>
-
+<div class="text-center mt-4">
+    <h3 >Welcome, to home page </h3>
+        <% if logged_in?%>
+            <div>
+                <span>You are Logged In as,<b> <%= current_user.username %></b></span>
+                <span><%= button_to'LogOut',session_path("a"),method: :delete, class:"btn btn-danger"%></span>
+                <%= link_to "Users page", user_path(current_user) %><br>
+            <% else %>
+                <%= button_to "Login", '/login', method: :get,class:"btn btn-primary"%>
+                <%= button_to "Sign Up", new_user_path, method: :get,class:"btn btn-success"%><br><br>
+            </div>
+        <% end %>
+        <div><%= link_to 'See Posts', posts_path ,class:"text-center"%></div>
+</div>
 
 
